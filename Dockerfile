@@ -45,7 +45,7 @@ ENV FVCORE_CACHE="/tmp"
 
 
 RUN mkdir /home/appuser/data
-ADD ../data /home/appuser/data
+ADD ./data /home/appuser/data
 RUN mkdir /home/appuser/crane
 ADD . /home/appuser/crane
 
