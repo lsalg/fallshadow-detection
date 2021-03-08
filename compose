@@ -1,0 +1,2 @@
+#! /bin/bash
+USER_ID=$UID docker-compose run crane-detector

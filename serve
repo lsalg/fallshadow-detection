@@ -1,0 +1,9 @@
+#! /bin/bash
+docker run --gpus all -it -p 8888:8888\
+  --shm-size=8gb --env="DISPLAY" \
+  --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+  --volume="$HOME/.torch/fvcore_cache:/tmp:rw"  \
+  --name=crane-detector crane-detector:v0
+
+# Grant docker access to host X server to show images
+xhost +local:`docker inspect --format='{{ .Config.Hostname }}' crane-detector`

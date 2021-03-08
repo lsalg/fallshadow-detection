@@ -1,0 +1,13 @@
+version: '2.3'
+
+services:
+   crane-detector:
+     container_name: crane-detector
+     build: ./
+     restart: always
+     ports:
+      - '8888:8888'
+     runtime: nvidia
+     environment:
+      - DISPLAY=$DISPLAY
+      - NVIDIA_VISIBLE_DEVICES=all

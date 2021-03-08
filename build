@@ -1,0 +1,7 @@
+#! /bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+
+# Building w/ UID
+docker build  --build-arg USER_ID=$UID -t crane-detector:v0 .
