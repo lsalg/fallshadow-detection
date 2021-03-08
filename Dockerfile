@@ -24,7 +24,7 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
 # install dependencies
 # See https://pytorch.org/ for other options if you use a different version of CUDA 
 RUN pip install --user cython cmake tensorboard
-RUN pip install --user torch==1.7 torchvision==0.9 -f https://download.pytorch.org/whl/cu101/torch_stable.html
+RUN pip install --user torch==1.7.1 torchvision==0.8.2 -f https://download.pytorch.org/whl/cu101/torch_stable.html
 RUN pip install --user 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
 
 RUN pip install --user 'git+https://github.com/facebookresearch/fvcore'
@@ -45,7 +45,7 @@ ENV FVCORE_CACHE="/tmp"
 
 
 RUN mkdir /home/appuser/data
-
+ADD ../data /home/appuser/data
 RUN mkdir /home/appuser/crane
 ADD . /home/appuser/crane
 
