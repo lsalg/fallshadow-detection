@@ -6,11 +6,11 @@ FROM nvidia/cuda:10.1-cudnn7-devel
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y \
-	python3-opencv ca-certificates python3-dev git wget sudo ninja-build && \
+	python3-opencv ca-certificates python3-dev git wget unzip curl sudo ninja-build && \
   rm -rf /var/lib/apt/lists/*
 
 # create a non-root user
-ARG USER_ID=1000
+ARG USER_ID=1254
 RUN useradd -m --no-log-init --system  --uid ${USER_ID} appuser -g sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER appuser
@@ -56,7 +56,7 @@ ADD . /home/appuser/crane
 # RUN /home/appuser/src/crane/download_dataset.sh /home/appuser/data
 
 # Launch jupyter lab
-# ENTRYPOINT ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser"]
+ ENTRYPOINT ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser"]
 
-ENTRYPOINT [ "bash" ]
+#ENTRYPOINT [ "bash" ]
 
