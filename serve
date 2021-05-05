@@ -1,5 +1,5 @@
 #! /bin/bash
-docker run --gpus all -it -p 8888:8888\
+docker run --gpus all -it -p 8888:8888 -p 6006:6006 \
   --shm-size=8gb --env="DISPLAY" \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   --volume="$HOME/.torch/fvcore_cache:/tmp:rw"  \
